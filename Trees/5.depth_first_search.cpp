@@ -35,16 +35,16 @@ void dfs(Node *root, vector<int> &preorder, vector<int> &inorder, vector<int> &p
             if (it.first->left)
                 st.push({it.first->left, 1});
         }
-        if (it.second == 2)
+        else if (it.second == 2)
         {
             inorder.push_back(it.first->data);
             it.second++;
             st.push(it);
-            
+
             if (it.first->right)
                 st.push({it.first->right, 1});
         }
-        if (it.second == 2)
+        else
         {
             postorder.push_back(it.first->data);
         }
