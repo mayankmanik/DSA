@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 // bipartite graph- which can be colored using exactly 2 colors such that no two adjacent nodes have same color.
 
 bool check_bfs(int i, vector<int> adj[], vector<int> &col)
@@ -11,7 +10,7 @@ bool check_bfs(int i, vector<int> adj[], vector<int> &col)
     q.push(i);
     while (!q.empty())
     {
-        int node=q.front();
+        int node = q.front();
         q.pop();
 
         for (auto &it : adj[node])
@@ -19,6 +18,7 @@ bool check_bfs(int i, vector<int> adj[], vector<int> &col)
             if (col[it] == -1)
             {
                 col[it] = 1 - col[node];
+                q.push(it);
             }
             else if (col[it] == col[node])
                 return false;
