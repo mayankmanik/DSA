@@ -20,6 +20,7 @@ int maxPathSum(Node *root, int &maxi)
         return 0;
     int left = max(0, maxPathSum(root->left, maxi));
     int right = max(0, maxPathSum(root->right, maxi));
+    maxi = max(maxi, root->data + left + right);
     return root->data + max(left, right);
 }
 
